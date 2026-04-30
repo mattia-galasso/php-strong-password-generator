@@ -1,7 +1,3 @@
-<?php 
-include_once './functions.php'
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,19 +18,15 @@ include_once './functions.php'
 <body class="container w-50">
     <h1 class="text-center mt-4">Password Generator</h1>    
     <hr class="mb-4">
-    
-    
-    <?php echo $alert; ?>
-
     <div class="card w-75 m-auto">
         <div class="card-header p-2">
             <h3 class="card-title text-center m-0">Genera una password sicura</h3>
         </div>
         <div class="card-body">
-            <form class="mb-0" method="GET">
+            <form class="mb-0" method="GET" action="result.php">
                 <div class="d-flex justify-content-around align-items-center">
                     <div class="form-floating mb-3">
-                      <input type="number" class="form-control" id="passwordLength" placeholder="Inserire un numero" name="password_length" value=<?php echo $userNumber; ?>>
+                      <input type="number" class="form-control" id="passwordLength" placeholder="Inserire un numero" name="password_length" min=0>
                       <label for="passwordLength">Lunghezza Password</label>
                     </div>
                 </div>
