@@ -1,3 +1,7 @@
+<?php 
+include_once './functions.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,49 +22,9 @@
 <body class="container w-50">
     <h1 class="text-center mt-4">Password Generator</h1>    
     <hr class="mb-4">
-    <?php 
-    $userNumber = 0;
-    $alert = '';
-
-    if (empty($_GET['password_length'])){
-        $alert = '<div class="alert alert-primary w-75 m-auto mb-4 text-center fs-5 " role="alert">Nessun parametro valido inserito!</div>';
-    } else {
-        $generatedPassword = randomPassword($_GET['password_length']);
-        $alert = '<div class="alert alert-success w-75 m-auto mb-4 text-center fs-5" role="alert">Password Generata:<br> '. $generatedPassword .'</div>';
-    }
-
-    function randomPassword(int $charNumber):string {
-        // Lettere Maiuscole
-        $lettersUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        
-        // Lettere Minuscole
-        $lettersLowercase = 'abcdefghijklmnopqrstuvwxyz';
-        
-        // Numeri
-        $numbers = '0123456789';
-
-        // Simboli
-        $symbols = '`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
-
-        // Variabile per la password generata
-        $genChars = '';
-
-        $chars = $lettersUppercase .= $lettersLowercase .= $numbers .= $symbols;
-        $charsLength = strlen($chars);
-
-        for($i = 0; $i < $charNumber; $i++){
-            $randChar = $chars[rand(0, $charsLength - 1)];
-            $genChars .= $randChar;
-        }
-
-        return $genChars;
-    }
-
-    ?>
     
-    <?php
-    echo $alert;
-    ?>
+    
+    <?php echo $alert; ?>
 
     <div class="card w-75 m-auto">
         <div class="card-header p-2">
