@@ -1,15 +1,14 @@
-<?php 
-    require_once './functions.php';
+<?php
 
-    if (!isset($_GET['password_length']) || $_GET['password_length'] == '' || $_GET['password_length'] == 0) {
-        // Redirect dell'utente all'index.php
-        header('Location: ./index.php');
-    }
+session_start();
+
+$password = $_SESSION['password'];
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,19 +25,17 @@
 
 </head>
 <!-- data-bs-theme="dark" -->
+
 <body class="container w-50">
-    <h1 class="text-center mt-4">Password Generator</h1>    
+    <h1 class="text-center mt-4">Password Generator</h1>
     <hr class="mb-4">
-    <?php if (!$alert == '') {
-        echo '<div class="alert alert-danger m-auto mb-4" role="alert">' . $alert . '</div>';
-        } 
-    ?>
     <div class="alert alert-success m-auto mb-4 text-center fs-5" role="alert">
         Password Generata:<br>
         <?php echo $_SESSION['password']; ?>
     </div>
-    <div class="d-flex justify-content-center align-items-center" >
+    <div class="d-flex justify-content-center align-items-center">
         <a href="./index.php" class="btn btn-primary ">Torna alla Home</a>
     </div>
 </body>
+
 </html>

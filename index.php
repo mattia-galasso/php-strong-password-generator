@@ -1,5 +1,20 @@
+<?php
+
+require_once './functions.php';
+
+session_start();
+
+if ($generatedPassword != '') {
+    header("Location: ./result.php");
+
+    // SESSION Password
+    $_SESSION['password'] = $generatedPassword;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,19 +31,20 @@
 
 </head>
 <!-- data-bs-theme="dark" -->
-<body class="container w-75" >
-    <h1 class="text-center mt-4">Password Generator</h1>    
+
+<body class="container w-75">
+    <h1 class="text-center mt-4">Password Generator</h1>
     <hr class="mb-4">
     <div class="card w-75 m-auto">
         <div class="card-header p-2">
             <h3 class="card-title text-center m-0">Genera una password sicura</h3>
         </div>
         <div class="card-body">
-            <form class="mb-0" method="GET" action="result.php">
+            <form class="mb-0" method="GET" action="">
                 <div class="d-flex justify-content-around mt-3 mb-5">
                     <div class="mb-3">
                         <label for="passwordLength" class="form-label fw-bold">Lunghezza Password</label>
-                        <input type="number" class="form-control" id="passwordLength" placeholder="Inserire un numero" name="password_length" min=0>
+                        <input type="number" class="form-control" id="passwordLength" placeholder="Inserire un numero" name="password_length" min="5">
                     </div>
                     <div class="d-flex justify-content-center gap-4">
                         <p class="fw-bold">Caratteri Password:</p>
@@ -60,4 +76,5 @@
         </div>
     </div>
 </body>
+
 </html>
