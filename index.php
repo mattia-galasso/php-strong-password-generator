@@ -15,7 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
 
 </head>
-<body class="container w-50">
+<!-- data-bs-theme="dark" -->
+<body class="container w-75" >
     <h1 class="text-center mt-4">Password Generator</h1>    
     <hr class="mb-4">
     <div class="card w-75 m-auto">
@@ -24,10 +25,31 @@
         </div>
         <div class="card-body">
             <form class="mb-0" method="GET" action="result.php">
-                <div class="d-flex justify-content-around align-items-center">
-                    <div class="form-floating mb-3">
-                      <input type="number" class="form-control" id="passwordLength" placeholder="Inserire un numero" name="password_length" min=0>
-                      <label for="passwordLength">Lunghezza Password</label>
+                <div class="d-flex justify-content-around mt-3 mb-5">
+                    <div class="mb-3">
+                        <label for="passwordLength" class="form-label fw-bold">Lunghezza Password</label>
+                        <input type="number" class="form-control" id="passwordLength" placeholder="Inserire un numero" name="password_length" min=0>
+                    </div>
+                    <div class="d-flex justify-content-center gap-4">
+                        <p class="fw-bold">Caratteri Password:</p>
+                        <div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="filterUppercase" name="uppercase" checked>
+                                <label class="form-check-label" for="filterUppercase">Lettere Maiuscole</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="filterLowercase" name="lowercase">
+                                <label class="form-check-label" for="filterLowercase">Lettere Minuscole</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="filterNumbers" name="numbers">
+                                <label class="form-check-label" for="filterNumbers">Numeri</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="filterSymbols" name="symbols">
+                                <label class="form-check-label" for="filterSymbols">Simboli</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center gap-4 mt-2">

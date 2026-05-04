@@ -1,10 +1,11 @@
 <?php 
     require_once './functions.php';
 
-    if (!isset($_GET['password_length']) || $_GET['password_length'] == 0) {
+    if (!isset($_GET['password_length']) || $_GET['password_length'] == '' || $_GET['password_length'] == 0) {
         // Redirect dell'utente all'index.php
         header('Location: ./index.php');
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +25,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
 
 </head>
+<!-- data-bs-theme="dark" -->
 <body class="container w-50">
     <h1 class="text-center mt-4">Password Generator</h1>    
     <hr class="mb-4">
-    <div class="alert alert-success w-75 m-auto mb-4 text-center fs-5" role="alert">
+    <?php if (!$alert == '') {
+        echo '<div class="alert alert-danger m-auto mb-4" role="alert">' . $alert . '</div>';
+        } 
+    ?>
+    <div class="alert alert-success m-auto mb-4 text-center fs-5" role="alert">
         Password Generata:<br>
         <?php echo $_SESSION['password']; ?>
     </div>
